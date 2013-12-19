@@ -19,7 +19,7 @@ angular.module('life.directives', []).
           link: function(scope, element, attributes) {
               var x = scope.$parent.$index;
               var y = scope.$parent.$parent.$index;
-              var count, last_state;
+              var count;
               scope.state = 0;
               var tick = function() {
                   count = 0;
@@ -44,8 +44,9 @@ angular.module('life.directives', []).
                       }, .01);
                   }, .01);
               }
-              scope.$on('tick', function() {
+              var running = scope.$on('tick', function() {
                   tick();
+                  running(); // deregister listener
               });
           }
       }
