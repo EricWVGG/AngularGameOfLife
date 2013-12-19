@@ -6,12 +6,6 @@
 angular.module('life.directives', []).
 
 
-  directive('appVersion', ['version', function(version) {
-    return function(scope, elm, attrs) {
-      elm.text(version);
-    };
-  }])
-  
   .directive('dude', ['$timeout', function($timeout) {
       return {
           restrict: 'A',
