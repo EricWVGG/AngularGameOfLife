@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My AngularJS App</title>
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body ng-app="life">
+
+  <div ng-controller="GameController">
+    <button ng-click="tick()">Go</button>
+    <table style="font-family:menlo; font-size:25px; line-height:18px;">
+        <tr ng-repeat="row in grid">
+            <td ng-repeat="alive in row track by $index" dude grid="grid" >
+                <span ng-show="alive == 1" >😃</span>
+                <span ng-show="alive == 0" >&nbsp;</span>
+                <span ng-show="alive == -1" >💀</span>
+            </td>
+        </tr>
+    </table>
+  </div>
+
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+</body>
+</html>
