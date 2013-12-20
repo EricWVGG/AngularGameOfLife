@@ -3,7 +3,7 @@
 /* Directives */
 
 
-angular.module('life.directives', []).
+angular.module('life.directives', [])
 
 
   .directive('dude', ['$timeout', function($timeout) {
