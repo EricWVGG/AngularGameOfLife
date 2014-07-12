@@ -9,6 +9,7 @@
 
   <div ng-controller="GameController">
     <button ng-click="tick()">Go</button>
+    <input type="range" min="5" max="100" ng-model="speed">
     <table style="font-family:menlo; font-size:25px; line-height:18px;">
         <tr ng-repeat="row in grid">
             <td ng-repeat="alive in row track by $index" dude grid="grid" >
