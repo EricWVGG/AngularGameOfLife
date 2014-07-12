@@ -9,6 +9,7 @@ angular.module('life.controllers',[]).
         $scope.pause = false;
         $scope.rows = $scope.cols = 60;
         
+        // http://www.bitstorm.org/gameoflife/lexicon/
         $scope.patterns = [
             {name: 'block',     tiles:[ [0, 1], [1, 1], [0, 0], [1, 0] ]},
             {name: 'beehive',   tiles:[ [1, 2], [2, 2], [0, 1], [3, 1], [1, 0], [2, 0] ]},
@@ -23,6 +24,7 @@ angular.module('life.controllers',[]).
             {name: 'r_pentomino', tiles:[ [1, 2], [2, 2], [0, 1], [1, 1], [1, 0] ]},
             {name: 'diehard',   tiles:[ [6, 2], [0, 1], [1, 1], [1, 0], [5, 0], [6, 0], [7, 0] ]},
             {name: 'acorn',     tiles:[ [1, 2], [3, 1], [0, 0], [1, 0], [4, 0], [5, 0], [6, 0] ]},
+            {name: 'queen bee shuttle', tiles:[ [9,0], [7,1], [9,1], [6,2], [8,2], [0,3], [1,3], [5,3], [8,3], [0,4], [1,4], [6,4], [8,4], [7,5], [9,5], [20,5], [21,5], [9,6], [20,6], [22,6], [22,7], [22,8], [23,8] ]},
             {name: 'gosper_gun',tiles:[ [24, 8], [22, 7], [24, 7], [12, 6], [13, 6], [20, 6], [21, 6], [34, 6], [35, 6], [11, 5], [15, 5], [20, 5], [21, 5], [34, 5], [35, 5], [0, 4], [1, 4], [10, 4], [16, 4], [20, 4], [21, 4], [0, 3], [1, 3], [10, 3], [14, 3], [16, 3], [17, 3], [22, 3], [24, 3], [10, 2], [16, 2], [24, 2], [11, 1], [15, 1], [12, 0], [13, 0] ]}
         ];
         $scope.pattern = $scope.patterns[$scope.patterns.length-1];
@@ -44,7 +46,7 @@ angular.module('life.controllers',[]).
             }
             $timeout(function() {
                 $scope.pause = false;
-            }, 500);
+            }, 1500);
         }
         $scope.reset();
         
