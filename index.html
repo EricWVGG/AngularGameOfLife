@@ -10,10 +10,11 @@
   <div ng-controller="GameController">
     
     <button ng-click="reset()">Go</button>
-    
     <select ng-options="pattern.name for pattern in patterns" ng-model="pattern"></select>
-    
     <input type="range" min="1" max="100" ng-model="speed">
+    <p>{{generations}}</p>
+    
+    
     <table style="font-family:menlo;">
         <tr ng-repeat="row in grid">
             <td ng-repeat="alive in row track by $index" dude grid="grid" ng-switch="alive">

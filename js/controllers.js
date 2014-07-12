@@ -6,7 +6,7 @@ angular.module('life.controllers',[]).
 
 
     controller('GameController',['$scope', '$timeout', function($scope, $timeout) {
-        $scope.pause = true;
+        $scope.pause = false;
         $scope.rows = $scope.cols = 60;
         
         $scope.patterns = [
@@ -25,9 +25,11 @@ angular.module('life.controllers',[]).
             {name: 'acorn',     tiles:[ [1, 2], [3, 1], [0, 0], [1, 0], [4, 0], [5, 0], [6, 0] ]},
             {name: 'gosper_gun',tiles:[ [24, 8], [22, 7], [24, 7], [12, 6], [13, 6], [20, 6], [21, 6], [34, 6], [35, 6], [11, 5], [15, 5], [20, 5], [21, 5], [34, 5], [35, 5], [0, 4], [1, 4], [10, 4], [16, 4], [20, 4], [21, 4], [0, 3], [1, 3], [10, 3], [14, 3], [16, 3], [17, 3], [22, 3], [24, 3], [10, 2], [16, 2], [24, 2], [11, 1], [15, 1], [12, 0], [13, 0] ]}
         ];
+        $scope.pattern = $scope.patterns[$scope.patterns.length-1];
         
         $scope.reset = function() {
             $scope.pause = true;
+            $scope.generations = 0;
             $scope.grid = [];
             for( var y = 0; y < $scope.rows; y++ ) {
                 $scope.grid[y] = [];
@@ -40,8 +42,11 @@ angular.module('life.controllers',[]).
                 var y = $scope.pattern.tiles[i][1] + 20;
                 $scope.grid[y][x] = 1;
             }
-            $scope.pause = false;
+            $timeout(function() {
+                $scope.pause = false;
+            }, 500);
         }
+        $scope.reset();
         
         $scope.speed = 1;
         var ticktock = true;
@@ -52,6 +57,7 @@ angular.module('life.controllers',[]).
                         $scope.$broadcast('tick');
                     } else {
                         $scope.$broadcast('tock');
+                        $scope.generations++;
                     }
                 }
                 ticktock = !ticktock;
