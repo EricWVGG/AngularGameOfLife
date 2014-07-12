@@ -16,7 +16,6 @@ angular.module('life.controllers',[]).
         }
         
         $scope.patterns = {
-        
             block : [
                 [0, 1], [1, 1],
                 [0, 0], [1, 0]
@@ -109,22 +108,15 @@ angular.module('life.controllers',[]).
                 [11, 1], [15, 1],
                 [12, 0], [13, 0]
             ]
-        
         }
         
         $scope.pattern = 'gosper_gun';
-
-        
 
         for( var i = 0; i < $scope.patterns[$scope.pattern].length; i++ ) {
             var x = $scope.patterns[$scope.pattern][i][0] + 10;
             var y = $scope.patterns[$scope.pattern][i][1] + 20;
             $scope.grid[y][x] = 1;
         }
-        
-        
-        
-        
         
         $scope.speed = 1;
         var ticktock = true;

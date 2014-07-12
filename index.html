@@ -10,12 +10,12 @@
   <div ng-controller="GameController">
     <button ng-click="tick()">Go</button>
     <input type="range" min="1" max="100" ng-model="speed">
-    <table style="font-family:menlo; font-size:25px; line-height:18px;">
+    <table style="font-family:menlo;">
         <tr ng-repeat="row in grid">
             <td ng-repeat="alive in row track by $index" dude grid="grid" ng-switch="alive">
                     <span ng-switch-when="1" >😃</span>
-                    <span ng-switch-when="0" >&nbsp;</span>
                     <span ng-switch-when="-1" >💀</span>
+                    <span ng-switch-default="0" >⬜️</span>
             </td>
         </tr>
     </table>

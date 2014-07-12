@@ -1,11 +1,14 @@
 /* app css stylesheet */
 
+body {
+    zoom:0.5;
+}
+
 td {
     width:25px;
     height:25px;
     font-size:20px;
     vertical-align:middle;
     text-align:center;
-    background-color:rgb(240,240,240);
 }
 
