@@ -54,15 +54,18 @@ angular.module('life.controllers',[]).
         var ticktock = true;
         (function animloop(){
             $timeout(function() {
-                if(!$scope.pause) {
+                if($scope.pause) {
+                    ticktock = true;
+                }
+                else if(!$scope.pause) {
                     if(ticktock) {
                         $scope.$broadcast('tick');
                     } else {
                         $scope.$broadcast('tock');
                         $scope.generations++;
                     }
+                    ticktock = !ticktock;
                 }
-                ticktock = !ticktock;
                 requestAnimationFrame(animloop);
             }, $scope.speed);
         })();
